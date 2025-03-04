@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas Seguras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0e0e0e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #0ff;
+        }
+        .password {
+            font-size: 1.5em;
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            word-break: break-all;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            background: #0ff;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Generador de Contraseñas</h2>
+        <div class="password" id="password">Haz clic en Generar</div>
+        <input type="range" id="length" min="6" max="32" value="12">
+        <p>Longitud: <span id="lengthValue">12</span></p>
+        <label><input type="checkbox" id="uppercase" checked> Mayúsculas</label>
+        <label><input type="checkbox" id="lowercase" checked> Minúsculas</label>
+        <label><input type="checkbox" id="numbers" checked> Números</label>
+        <label><input type="checkbox" id="symbols" checked> Símbolos</label>
+        <button onclick="generatePassword()">Generar</button>
+        <button onclick="copyPassword()">Copiar</button>
+    </div>
+    
+    <script>
+        function generatePassword() {
+            const length = document.getElementById("length").value;
+            const uppercase = document.getElementById("uppercase").checked;
+            const lowercase = document.getElementById("lowercase").checked;
+            const numbers = document.getElementById("numbers").checked;
+            const symbols = document.getElementById("symbols").checked;
+            
+            const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+            const numChars = "0123456789";
+            const symbolChars = "!@#$%^&*()_+~|{}[]:;<>?,./";
+            
+            let allChars = "";
+            if (uppercase) allChars += upperChars;
+            if (lowercase) allChars += lowerChars;
+            if (numbers) allChars += numChars;
+            if (symbols) allChars += symbolChars;
+            
+            if (allChars === "") {
+                document.getElementById("password").innerText = "Seleccione al menos un tipo de caracter";
+                return;
+            }
+            
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                password += allChars[Math.floor(Math.random() * allChars.length)];
+            }
+            document.getElementById("password").innerText = password;
+        }
+        
+        function copyPassword() {
+            const password = document.getElementById("password").innerText;
+            navigator.clipboard.writeText(password);
+            
+            const alertBox = document.createElement("div");
+            alertBox.innerText = "Contraseña copiada al portapapeles";
+            alertBox.style.position = "fixed";
+            alertBox.style.bottom = "20px";
+            alertBox.style.left = "50%";
+            alertBox.style.transform = "translateX(-50%)";
+            alertBox.style.background = "#0ff";
+            alertBox.style.color = "#000";
+            alertBox.style.padding = "10px 20px";
+            alertBox.style.borderRadius = "5px";
+            alertBox.style.boxShadow = "0px 0px 10px #0ff";
+            document.body.appendChild(alertBox);
+            
+            setTimeout(() => {
+                alertBox.remove();
+            }, 5000);
+        }
+        
+        document.getElementById("length").addEventListener("input", function() {
+            document.getElementById("lengthValue").innerText = this.value;
+        });
+    </script>
+</body>
+</html>
