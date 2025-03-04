@@ -29,3 +29,57 @@ Requisitos funcionales:
 	•	Animaciones suaves al generar la contraseña.
 
 Con este prompt, puedes generar un código base optimizado y escalable. ¿Quieres que te genere el código inicial con estas especificaciones? 🚀
+
+
+
+Prompt final
+
+**
+
+Aquí tienes el prompt completo para generar la aplicación tal como la tienes ahora:
+
+Prompt
+
+Crea una aplicación web moderna y futurista para generar contraseñas seguras, desarrollada con las mejores prácticas de desarrollo web. La aplicación debe incluir un único archivo con HTML, JavaScript y CSS. Debe funcionar tanto en escritorio como en dispositivos móviles y será desplegada en GitHub Pages o GitLab Pages utilizando Visual Studio Code (VSC).
+
+Características requeridas:
+	1.	Diseño futurista y funcional
+	•	Interfaz atractiva con efectos de neón en modo oscuro y un diseño claro en modo claro.
+	•	Uso de imágenes de fondo:
+	•	Modo oscuro: images/fondo.jpg
+	•	Modo claro: images/fondo_claro.jpg
+	•	Animaciones y transiciones suaves al cambiar de tema.
+	2.	Opciones de personalización de contraseña
+	•	Checkboxes para incluir o excluir:
+	•	Mayúsculas
+	•	Minúsculas
+	•	Números
+	•	Símbolos
+	•	Selector de longitud de contraseña (mínimo 6, máximo 32 caracteres).
+	3.	Generador de contraseñas seguras
+	•	Utiliza una función aleatoria eficiente.
+	•	Garantiza que la contraseña cumpla con los requisitos seleccionados.
+	4.	Botón de copiar contraseña
+	•	Permite copiar la contraseña generada al portapapeles.
+	•	Muestra una notificación emergente de confirmación que desaparece automáticamente después de 5 segundos.
+	5.	Modo claro y modo oscuro
+	•	Agregar un botón en la parte superior derecha para alternar entre modo claro y modo oscuro (☀️/🌙).
+	•	Ajustar la interfaz para que sea legible en ambos modos.
+	6.	Diseño responsive
+	•	El contenedor con el generador de contraseñas debe estar centrado en la pantalla.
+	•	Compatible con navegadores modernos y dispositivos móviles.
+	•	Uso de flexbox para un diseño adaptable.
+	7.	Experiencia de usuario fluida
+	•	Efectos visuales modernos.
+	•	Botones intuitivos y accesibles.
+	•	Animaciones suaves al generar la contraseña y cambiar de tema.
+
+Tecnologías utilizadas:
+	•	HTML + CSS + JavaScript en un solo archivo (sin frameworks).
+	•	Uso de GitHub Pages o GitLab Pages para la publicación.
+	•	Optimizado para Visual Studio Code (VSC).
+
+Resultado esperado:
+
+Un generador de contraseñas moderno, atractivo y funcional, con modo oscuro/claro y opciones de personalización. Compatible con móviles y computadoras. Implementado en un solo archivo HTML, listo para desplegar en GitHub Pages o GitLab Pages.
+

@@ -17,6 +17,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            transition: background 0.3s, color 0.3s;
         }
         .container {
             max-width: 400px;
@@ -24,6 +25,7 @@
             background: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             box-shadow: 0px 0px 10px #0ff;
+            transition: background 0.3s, color 0.3s;
         }
         .password {
             font-size: 1.5em;
@@ -45,9 +47,36 @@
         button:hover {
             background: #0cc;
         }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        body.light-mode {
+            background: url('images/fondo_claro.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000;
+        }
+        body.light-mode .container {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 10px #aaa;
+        }
+        body.light-mode .password {
+            background: #ddd;
+        }
+        body.light-mode .theme-toggle {
+            color: #000;
+        }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
     <div class="container">
         <h2>Generador de Contraseñas</h2>
         <div class="password" id="password">Haz clic en Generar</div>
@@ -112,6 +141,11 @@
             setTimeout(() => {
                 alertBox.remove();
             }, 5000);
+        }
+        
+        function toggleTheme() {
+            document.body.classList.toggle("light-mode");
+            document.querySelector(".theme-toggle").innerText = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
         }
         
         document.getElementById("length").addEventListener("input", function() {
